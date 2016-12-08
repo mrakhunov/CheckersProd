@@ -1,0 +1,302 @@
+body {
+	font-size: 13px;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+body.email { 
+margin: 0;
+padding:0;
+background-image: url(../images/bg.jpg);
+}
+
+/*@media (min-width: 691px) {
+	#wrapper { 
+		position: relative;
+		margin: auto;
+		width: 680px;
+		height: 700px;
+	}
+}
+
+
+@media (max-width: 690px) {
+	/*#wrapper { 
+		margin: 0;
+		width: 680px;
+		//height: 700px;
+	}
+}*/
+
+
+
+.dem-bubble {
+border: 1px solid #ccc;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow: 1px 1px 5px rgba(148,148,148,.5);
+box-shadow: 1px 1px 5px rgba(148,148,148,.5);
+padding: 0;
+position: relative;
+}
+
+#startposition:focus {
+	background-color:green;
+}
+
+#menu-bsk {
+	cursor:pointer;
+	height: 65px;
+	padding-left: 5px;
+	background-image:url('../images/eater_sm.jpg');
+	background-repeat:no-repeat;
+	
+	 
+}
+
+.ch-button{
+	font-size:12px; 
+	height:38px; 
+	margin-top: 10px; 
+	border-radius:10px; 
+	font-family: Tahoma, Geneva, sans-serif;
+	padding: 2px;
+}
+
+.ui-button-text {
+	padding: 0 !important;
+	font-size: 13px;
+}
+
+#ch_logo{
+	width: 95%;
+	margin-bottom: 20px;
+}
+
+#menu{ 
+	float: left;
+	width: 158px;
+	padding: 20px 5px 180px 15px;
+	/*background-color: rgba(219, 185, 169, 0.7);*/
+	background-image: url(../images/bg_menu3.jpg);
+}
+
+fieldset {
+	margin-bottom: 12px;
+	padding: 0;
+	text-align: left;
+	font-size: 12px;
+	color: #1c94c4;
+	border: solid 2px rgb(169, 169, 169);
+	white-space: nowrap;
+	position: relative;
+}
+
+#basket {
+	padding:10px 0 10px 0;
+	width:60px; 
+	height:50px;
+}
+
+#content { 
+	margin-left: 1.2em;
+	margin-top: 1em;
+	float: left;
+	white-space: nowrap;
+	display: inline-block;
+	position: fixed;
+}
+
+#content-email { 
+	width: 100%;
+	white-space: nowrap;
+	margin-top: 40px;
+}
+
+#rigthcolumn {
+	position: absolute;
+	float: right;
+	width: 120px;
+	padding-right: 1px;
+	background-color: beige;
+	height: 400px;
+	display: inline;
+}
+
+span.boardholder {
+	display: inline;
+	float: left;
+	padding-left: 10px;
+}
+
+#curr-version { 
+    font-style:italic;
+	margin-top:0.2em;
+	font-size: 0.85em;
+	color: #5F5345;
+	text-align: center;
+}
+
+#cell-size {
+	position: relative; 
+	bottom:2px; 
+	margin-left:4px; 
+	border:0; 
+	font-weight:bold;"
+}
+
+.color-ligth-orange {color:#f6931f;}
+
+	
+button{position:relative; margin:auto; width:114px;}
+
+div.forlink{
+	margin: 10px 0 1px 20px;
+	display: inline;
+}
+
+a:link    {color:#1c94c4;}
+a:visited {color:#1c94c4;}
+a:hover   {color:#A53020;}
+a { text-decoration: none;}
+
+label, a {
+	color: #A53020;
+	position: relative;
+	bottom: 2px;
+}
+
+select{width:112px; color: #1c94c4;}
+
+#settings{
+	display:block;
+}
+
+#settings, #menu-ch-holder{
+	border: #CCCCCC solid 4px !important;
+	border-radius:5px;
+	margin: 0 3px 15px -8px;
+	padding: 10px;
+	border-width: 10px !important;
+}
+
+.field{
+	line-height: 1;
+	margin-bottom: 8px;
+}
+
+table { 
+border:solid 4px; border-color:#990000;}
+
+table#menu-ch-holder {
+	float: left;
+	width: 145px;
+}
+
+tr, td {
+border: 0;
+}
+
+.ch-td-button {border:0;}
+
+.boardheader-advice{
+	color: silver;
+	font-style: italic;
+	position: relative; 
+	margin-bottom: 1em;
+	text-align: center;
+	font-family: sans-serif;
+}
+.boardheader { 
+	position: relative; 
+	margin-bottom: 0.5em;
+	font-size: medium;
+	text-align: center;
+	color: rgb(241,47,93);
+	font-family: sans-serif;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.boardnum {
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:5px;
+	width:5%;
+	font-size:18px;
+}
+
+.cel{width:80px;height:80px; background-color: #FBD584 }
+
+.out {border: solid 2px rgba(167, 156, 156, 0.43);
+background-color:transparent;}
+
+.celbl {
+width:80px; 
+height:80px; 
+background-color:#A45200;
+font-size: 24px;
+color: #FFFFFF;
+text-align: center;
+}
+
+
+
+.ch, .ch_menu {
+	border:0px; 
+	padding-left:0px; 
+	background-color:transparent;
+	cursor:pointer;
+	padding-left: 1px;
+}
+
+.ch_menu{
+	padding-left: 9px;
+	padding-top: 2px; 
+	
+}
+
+div#for-board-send {
+	padding-right: .67em;
+}
+div#dialog-note {
+	margin-top: 1em;
+	font-size: 1.1em;
+	color: #333;
+	text-align: left;
+	
+}
+div.note-border {
+border: 1px solid brown;
+padding: 0.5em 1em 1em 1em;
+}
+
+footer.footer-email {
+	position: relative;
+	text-align: center;
+	bottom: 0.75em;
+}
+
+footer { 
+	font-size: 1em;
+	font-style: italic;
+	position: relative;
+    top: 0.2em;
+}
+
+.ch-home-counter{
+	display: none; 
+	margin: 0 0 0 30px;
+	position: relative;
+	top: 20px;
+}
+
+#pos-url {
+	width:100%;
+}
+
+#flags-icons-wrapper {
+	text-align: center;
+}
+
+.flags-icons {
+	cursor: pointer;
+}	

@@ -1,0 +1,101 @@
+ <!DOCTYPE>
+<html>
+<head>
+	<meta name="http-equiv" content="Content-type: text/html; charset=utf-8"/>
+	<title>Mikhail Rakhunov's Checkers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Mikhail Rakhunov">
+	<meta name="description" content="Mikhail Rakhunov, checkers, checkers for all devices, шашки, шашки для всех устройств, Михаил Рахунов">
+
+	<link href="css/ui-lightness/jquery-ui-1.11.4.custom.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
+
+	<script src="js/jquery-1.12.2.min.js"></script>
+	<script src="js/jquery-ui-1.11.4.custom.min.js"></script>
+	 
+	<script language="javascript" src="js/locate.js" charset="utf-8"></script>
+	<script language="javascript" src="js/storage.js" charset="utf-8"></script>
+	<script language="javascript" src="js/getboard.js" charset="utf-8"></script>
+	<script language="javascript" src="js/main.js" charset="utf-8"></script>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="menu">
+       <img id="ch_logo" src="images/logo.gif" border="0">  
+         <table id="menu-ch-holder" align="center" border="0" cellspacing="3" cellpadding="0">
+               <tbody>
+                <tr>
+                    <td class="out" id="menu-ch1">
+                        <canvas name="wch" class="ch_menu" width="38" height="38"></canvas>
+                   </td>
+                    <td class="out" id="menu-ch2">
+                        <canvas name="bch" class="ch_menu" width="38" height="38"></canvas>
+                   </td>
+                  
+                </tr>
+                <tr>   
+                    <td id="menu-ch3">
+                        <canvas name="wkng" class="ch_menu" width="38" height="38"></canvas>
+                   </td>
+                   <td class="out" id="menu-ch4">
+                        <canvas name="bkng" class="ch_menu" width="38" height="38"></canvas>
+                   </td>
+                   </tr><tr>
+                   <td colspan="2" id="menu-bsk" align="left">
+                   </td>
+                </tr><tr>
+                   <td colspan="2" class="ch-td-button" align="center">
+                     <button id="startposition" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ch-button" role="button" aria-disabled="false"><span class="ui-button-text"></span></button>
+                    </td>
+                </tr><tr>
+                   <td colspan="2" class="ch-td-button" align="center">
+                     <button id="send-pos" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ch-button" role="button" aria-disabled="false"><span class="ui-button-text"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="forlink"><a id="settingbtn" href="http://checkershome.com/#"></a></div>
+        <div id="settings">
+        <form>
+		    <p>
+			   <label id='lbl-checker-size'></label>
+			   <span id="cell-size" class="color-ligth-orange"></span>
+			  <div id="slider-range-min"></div>
+			</p>
+            <div class="field">
+                <label id="lbl-board-type" for="type"></label>
+                <select id="type">
+                    <option value="6">6 x 6</option>
+                   <option value="8" selected="selected">8 x 8</option>
+                   <option value="10">10 x 10</option>
+                   <option value="12">12 x 12</option>
+                    <option id='option-txt-it' value="i"></option>
+                </select>
+             </div> 
+             <div class="field">  
+                <label id='lbl-board-color' for="color"></label>
+                <select id="color">
+                    <option value="cellblue"></option>
+                    <option value="cellbrown" selected="selected"></option>
+                    <option value="cellgray"></option>
+                    <option value="cellgreen"></option>
+                </select> 
+            </div> 
+           </form> 
+           <fieldset>
+                <legend>Notation</legend>
+                 <div id="notation-div"><input class="nt-checkbox" name="notation" type="checkbox" value="0"> <label for="notation">Show Notation</label></div>
+              <div id="chess-div"><input class="nt-checkbox" name="chess-notation" type="checkbox" value="0"> <label for="chess-notation">Chess Notation</label></div>
+            </fieldset> 
+        </div>
+		<div id='flags-icons-wrapper'>
+			<span class="flags-icons" data-lang="us"><img src="images/United-States-Flag-icon.png" border="0"></span>
+			<span class="flags-icons" data-lang="ru"><img src="images/Russia-Flag-icon.png" border="0"></span>
+		</div>
+		<div id="curr-version"></div>
+	</div>
+	
+    
+    <div id="content"></div>	
+ </body></html>
