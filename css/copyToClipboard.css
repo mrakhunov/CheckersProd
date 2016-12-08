@@ -1,0 +1,18 @@
+#copywraper {
+	margin: 10px 0 0 0;
+}
+
+#copybtn {
+	position: relative;
+    top: -25px;
+    white-space: nowrap;
+    color: #1c94c4;
+    cursor: pointer;
+}
+
+#copyText {
+	    width: 120px;
+    color: transparent;
+    overflow-x: auto;
+    font-size: 6px;
+}

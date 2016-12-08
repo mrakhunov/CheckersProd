@@ -50,7 +50,7 @@ $( document ).ready(function() {
 	Board.isShowSettings = StoredPosition.Board.isShowSettings;
 	Board.currentCellSize = StoredPosition.Board.currentCellSize;
 	Board.lang = StoredPosition.Board.lang; 
-	Locate.land = Board.lang;
+	Locate.lang = Board.lang;
 	Board.version();  // Write cooperate
 	
 	addBoard('content');

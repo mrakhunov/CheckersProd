@@ -22,8 +22,7 @@
 		cellgreen:['rgba(77, 163, 69, 0.52)','rgba(125, 189, 231, 0)', 'rgba(44, 145, 35, 1)']
 		
 	}
-	
-}	
+};	
 
 var setBoardSize = function(size, selector, colorName) {
     var tblSelector = '#' + selector;
@@ -264,7 +263,14 @@ var sendTo = function () {
 	}
 	$(' div#board2 canvas').css('cursor', 'default');
 	setBoardSize(Board.currentCellSize, 'tbl2', Board.colorName);
-	$('#dialog-note').append( '<p><a id="pos-url" target="_blank"></a></p>');		
+	$('#dialog-note').append( '<p><a id="pos-url" target="_blank"></a></p>');
+
+    // prepare the Copy TO Clipboard functionality
+	$('#dialog-note p:last').append( '<div id="copyText"></div>');
+	$('#dialog-note p:last').append( '<button id="copybtn">' + Locate.current.copyToClipboard +'</button>');
+	var btnW = Locate.lang === "ru" ? "250px" : "140px";
+	$('#copybtn').css("width", btnW);
+	setTextToClipboard('#copybtn', '#copyText');
 
 buildURL(false);
 
@@ -362,6 +368,7 @@ var buildURL =  function (openNewWindow) {
 	} else {
 		$('#pos-url').attr('href', url);
 		$('#pos-url').text(Locate.current.modalWindowLink);
+		$('#copyText').text(url);
 	}
 }	
 
@@ -498,4 +505,5 @@ var MRDn = function (inNumArray) {
 	else {$('title').text(Locate.english.pageTitle);}
 	
 	setBoardSize(num, 'tbl2', sellColor);
+	
 }
