@@ -1,11 +1,11 @@
 #copybtn {
-	left: -115px;
+	left: -2px;
     white-space: nowrap;
 	height: 24px;
 }
 
 #copyText {
-	width: 120px;
+	width: 2px;
     color: transparent;
     overflow-x: auto;
     font-size: 6px;
