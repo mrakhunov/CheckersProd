@@ -216,7 +216,8 @@ var sendTo = function () {
 		width: 'auto', resizable: false,
 		position: { my: "left center", at: "left center", of: $('#content') },
 	    buttons: [ 
-			{ text: Locate.current.modalWindowButtons[0], click: function() { $( this ).dialog( "close" ); } } 
+			{id: "copybtn", text: Locate.current.copyToClipboard},
+			{ style: "height: 24px;", text: Locate.current.modalWindowButtons[0], click: function() { $( this ).dialog( "close" ); } } 	
 		], 
 		close: function (event, ui) {
 			$(this).remove();
@@ -266,8 +267,7 @@ var sendTo = function () {
 	$('#dialog-note').append( '<p><a id="pos-url" target="_blank"></a></p>');
 
     // prepare the Copy TO Clipboard functionality
-	$('#dialog-note p:last').append( '<div id="copyText"></div>');
-	$('#dialog-note p:last').append( '<button id="copybtn">' + Locate.current.copyToClipboard +'</button>');
+	$('.ui-dialog-buttonpane').append( '<div id="copyText"></div>');
 	var btnW = Locate.lang === "ru" ? "250px" : "140px";
 	$('#copybtn').css("width", btnW);
 	setTextToClipboard('#copybtn', '#copyText');
