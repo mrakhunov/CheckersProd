@@ -14,7 +14,7 @@
 	isNotationShown: false,
 	isChess: true,
 	isShowSettings: true,
-	version: function() { $('#curr-version').html("&copy2014 Mikhail Rakhunov. Checkers Home(1.2.14)"); },
+	version: function() { $('#curr-version').html("&copy2014 Mikhail Rakhunov. Checkers Home(1.2.15)"); },
 	cellbackground:  {
 		cellblue:['#7DBDE7', 'rgba(125, 189, 231, 0)', 'rgb(35, 137, 231)'], /* black cell, white cell, and board border*/
 	    cellbrown:['#A45200', '#FBD584', '#990000'],
