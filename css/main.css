@@ -154,7 +154,7 @@ select{width:112px; color: #1c94c4;}
 	border-radius:5px;
 	margin: 0 3px 15px -8px;
 	padding: 10px;
-	border-width: 10px !important;
+	border-width: 2px !important;
 }
 
 .field{
@@ -168,6 +168,7 @@ border:solid 4px; border-color:#990000;}
 table#menu-ch-holder {
 	float: left;
 	width: 145px;
+	border-width: 2px !important;
 }
 
 tr, td {
