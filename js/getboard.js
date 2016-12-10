@@ -1,6 +1,7 @@
 // To minimize use: http://jscompress.com/
 //or http://dean.edwards.name/packer/
- var Board = {
+var textToClipboardHolder = null;
+var Board = {
     id: null,
 	oneRow: 8,
 	italian: false,
@@ -208,7 +209,7 @@ var notationArray = [[], [], [], []];
 var sendTo = function () {
     writePosition();
 	var name = "";
-	
+	textToClipboardHolder =  new textToClipboard();
 	$('<div></div>').appendTo('body')
 	.html('<div id="for-board-send"></div>')
 	.dialog({
@@ -216,13 +217,19 @@ var sendTo = function () {
 		width: 'auto', resizable: false,
 		position: { my: "left center", at: "left center", of: $('#content') },
 	    buttons: [ 
-			{id: "copybtn", text: Locate.current.copyToClipboard},
+			{id: "copybtn", text: Locate.current.copyToClipboard, click: function() {textToClipboardHolder.copyToClipboard('#copyText'); } },
 			{ style: "height: 24px;", text: Locate.current.modalWindowButtons[0], click: function() { $( this ).dialog( "close" ); } } 	
 		], 
 		close: function (event, ui) {
+			textToClipboardHolder = null;
 			$(this).remove();
 		}
 	});
+	
+	// prepare the Copy TO Clipboard functionality
+	$('.ui-dialog-buttonpane').append( '<div id="copyText"></div>');
+	var btnW = Locate.lang === "ru" ? "250px" : "140px";
+	$('#copybtn').css("width", btnW);
 	
 	var titleText = Locate.current.modalWindowPositionTitle;
 	addBoard2('for-board-send');
@@ -265,12 +272,6 @@ var sendTo = function () {
 	$(' div#board2 canvas').css('cursor', 'default');
 	setBoardSize(Board.currentCellSize, 'tbl2', Board.colorName);
 	$('#dialog-note').append( '<p><a id="pos-url" target="_blank"></a></p>');
-
-    // prepare the Copy TO Clipboard functionality
-	$('.ui-dialog-buttonpane').append( '<div id="copyText"></div>');
-	var btnW = Locate.lang === "ru" ? "250px" : "140px";
-	$('#copybtn').css("width", btnW);
-	setTextToClipboard('#copybtn', '#copyText');
 
 buildURL(false);
 

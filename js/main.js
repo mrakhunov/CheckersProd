@@ -16,7 +16,7 @@ var parentTableId = null;
 var menuChecker = {
 	name:null,
 	parentcolor: 'transparent', 
-	selectedcolor: 'rgba(232, 194, 240, 0.43)',
+	selectedcolor: 'rgba(223, 160, 236, 0.431373)',//'rgba(232, 194, 240, 0.43)',
 	busy: false,
 	owner: null,
 	body: null,

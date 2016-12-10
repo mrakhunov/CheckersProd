@@ -1,23 +1,19 @@
-var setTextToClipboard = function (btnSelector, txtSelector) {
-	var copyBtn = document.querySelector(btnSelector);  
-	copyBtn.addEventListener('click', function(event) {  
-	  // Select the email link anchor text  
-	  var copyText = document.querySelector(txtSelector);  
+var textToClipboard = function () {
+	this.copyToClipboard = function(txtSelector) {	
+	  var copyText = document.querySelector(txtSelector);
+	  window.getSelection().removeAllRanges();  	
 	  var range = document.createRange();  
 	  range.selectNode(copyText);  
 	  window.getSelection().addRange(range);
-
 	  try {  
-		// Now that we've selected the anchor text, execute the copy command  
 		var successful = document.execCommand('copy');  
 		var msg = successful ? 'successful' : 'unsuccessful';  
-		console.log('Copy email command was ' + msg);  
-	  } catch(err) {  
-		console.log('Oops, unable to copy');  
+	  } catch(err) {
+			var er = err;
+	  }finally {
+		  window.getSelection().removeAllRanges();  
 	  }
-
-	  // Remove the selections - NOTE: Should use
-	  // removeRange(range) when it is supported  
-	  window.getSelection().removeAllRanges();  
-	});
+	};
+	 
+	//});
 };
