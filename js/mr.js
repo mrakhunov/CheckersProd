@@ -20,8 +20,7 @@ var MRE = function (txt) {
 	return String(r) + out;
 };
 
-var MRD = function (inTxt, convert) {
-
+var MRD = function (inTxt) {
 	var left = inTxt.substr(1);
 	var r = inTxt.substr(0,1);
 	var pos = 4;
@@ -36,10 +35,6 @@ var MRD = function (inTxt, convert) {
 	 left = left.slice(pos);
 	 k += 2;
 	 if (k > 7) k = 3; 
-	}
-	
-	if(convert){ 
-		notation = convertToObj(txt);
 	}
 	return txt; 
 };
@@ -83,7 +78,7 @@ var MRDn = function (inNumArray) {
 	return newArray; 
 };
 
-var convertToObj = function(notationStr) { 
+var convertToArray = function(notationStr) { 
     var notationArr = JSON.parse(notationStr);
 	var stringArr = [];
 	notationArr.forEach(function(el, indx) {
@@ -92,36 +87,3 @@ var convertToObj = function(notationStr) {
 	});
 	return stringArr;
 };
-
-var notation = {};
-
-var displayPosition = function () {
-	var oneRow, italian = false;
-    var colorName = sellColor.replace('cell', ''); 
-	
-	if(boardSet[1] % 10 == 0) { 
-	   oneRow = boardSet[0]/(boardSet[1]/10);
-	} else {
-		italian = true; 
-		oneRow =  boardSet[0]/((boardSet[1] - 1)/10);
-	}
-
-	var notationObj = {
-		white: notation[0].toString(),
-		whiteKing:  notation[1].toString(),
-		black: notation[2].toString(),
-		blackKing:notation[3].toString()
-	};
-
-	var properties = {
-		title: title,
-		id: 1,
-		oneRow: oneRow,
-		cellSize: chS, 
-		notation: notationObj,
-		colorName: colorName,
-		italian: italian
-	};
-
-	$("#sent-position").showPosition(properties);
-}
