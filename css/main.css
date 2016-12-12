@@ -5,28 +5,7 @@ body {
 body.email { 
 margin: 0;
 padding:0;
-background-image: url(../images/bg.jpg);
 }
-
-/*@media (min-width: 691px) {
-	#wrapper { 
-		position: relative;
-		margin: auto;
-		width: 680px;
-		height: 700px;
-	}
-}
-
-
-@media (max-width: 690px) {
-	/*#wrapper { 
-		margin: 0;
-		width: 680px;
-		//height: 700px;
-	}
-}*/
-
-
 
 .dem-bubble {
 border: 1px solid #ccc;
@@ -44,21 +23,20 @@ position: relative;
 
 #menu-bsk {
 	cursor:pointer;
-	height: 65px;
+	height: 56px;
 	padding-left: 5px;
-	background-image:url('../images/eater_sm.jpg');
+	background-image:url('../images/eater.png');
 	background-repeat:no-repeat;
 	
 	 
 }
 
 .ch-button{
-	font-size:12px; 
-	height:38px; 
-	margin-top: 10px; 
-	border-radius:10px; 
-	font-family: Tahoma, Geneva, sans-serif;
-	padding: 2px;
+	font-size: 12px;
+    height: 33px;
+    margin-top: 4px;
+    border-radius: 6px;
+    font-family: Tahoma, Geneva, sans-serif;
 }
 
 .ui-button-text {
@@ -73,10 +51,11 @@ position: relative;
 
 #menu{ 
 	float: left;
-	width: 158px;
-	padding: 20px 5px 180px 15px;
-	/*background-color: rgba(219, 185, 169, 0.7);*/
-	background-image: url(../images/bg_menu3.jpg);
+    width: 158px;
+    padding: 20px 5px 10px 15px;
+    background-color: antiquewhite;
+    margin-left: 20px;
+	border: solid 1.5px #ead2b2;
 }
 
 fieldset {

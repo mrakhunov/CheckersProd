@@ -23,6 +23,7 @@ english: {
 	modalWindowPositionTitle: 'Click to add Title...',
 	modalWindowButtons: ['Close'],
 	modalWindowLink: 'Preview in new window',
+	copyToClipboard: 'Copy to Clipboard',
 	checkerNames:[["wch", "White"], ["wkng", "White King"], ["bch", "Black"], ["bkng", "Black King"]]
 	
 },
@@ -48,6 +49,7 @@ russian: {
 	modalWindowTitle: 'Пошли линк другу...',	
 	modalWindowPositionTitle: 'Кликни, чтобы заполнить название позиции...',
 	modalWindowLink: 'Предварительный просмотр в новом окне',
+	copyToClipboard: 'Скопировать в буфер обмена',
 	modalWindowButtons: ['Закрыть'],
 	checkerNames:[["wch", "Белые"], ["wkng", "Белые дамки"], ["bch", "Черные"], ["bkng", "Черные дамки"]]
 	

@@ -24,6 +24,14 @@ table.position {
 	margin-bottom: 10px;
 }
 
+.posFooter {
+	font-style: italic;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #5F5345;
+    text-align: center;
+}
+
 .square, .squarebl  {
     width: 80px;
     height: 80px;

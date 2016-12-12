@@ -38,7 +38,7 @@ $.fn.showPosition = function(arguments) {
 		thisId++;
 		arguments.id = thisId;
 	} 
-		
+	    	
 	var board = {
 		title: null || arguments.title,
 		parenttId: null || $(this).attr('id'),
@@ -51,7 +51,9 @@ $.fn.showPosition = function(arguments) {
 		currentCellSize: arguments.cellSize || 24,
 		notation: arguments.notation,
 		currentColor: (arguments.colorName === undefined || arguments.colorName === null)? 'brown' :  arguments.colorName,
-		colors:  boardColors
+		colors:  boardColors,
+		isVersionShown: arguments.isVersionShown || true,
+		version: "&copy2016 Mikhail Rakhunov. Checkers Engine(1.0.1)" 
 	};
 	
 	function setBoardSize(sizeArg) {
@@ -100,6 +102,10 @@ $.fn.showPosition = function(arguments) {
 		$divHeader = document.createElement("div");
 		$($divHeader).addClass('posTitle');
 		$($divHeader).text(board.title);
+		$divFooter = document.createElement("div");
+		$($divFooter).addClass('posFooter');
+		$($divFooter).html(board.version);
+				
 		$tbl = document.createElement("table");
 		$($tbl).addClass('position'); 
 		$($tbl).attr({
@@ -110,9 +116,15 @@ $.fn.showPosition = function(arguments) {
 		if(board.parenttId) {
 		    document.getElementById(board.parenttId).appendChild($divHeader);
 			document.getElementById(board.parenttId).appendChild($tbl);
+			if(board.isVersionShown) {
+				document.getElementById(board.parenttId).appendChild($divFooter);
+			}	
 		} else {
 		    document.body.appendChild($divHeader);
 			document.body.appendChild($tbl);
+			if(board.isVersionShown) {
+				document.body.appendChild($divFooter)
+			}	
 		}
 		
 		$tr = document.createElement("tr");
@@ -166,8 +178,6 @@ $.fn.showPosition = function(arguments) {
 		   }
 			
 		}
-	
-	
 	};
 	
 	function buildChecker (sellObj, name) {
