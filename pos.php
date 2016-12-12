@@ -7,17 +7,18 @@
 	<meta name="author" content="Mikhail Rakhunov">
 	<meta name="description" content="Mikhail Rakhunov, checkers, checkers for all devices, шашки, шашки для всех устройств, Михаил Рахунов">
 
-	<link href="css/ui-lightness/jquery-ui-1.11.4.custom.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
+	<link href="css/checkers.css" rel="stylesheet" type="text/css" media="screen">
 
-	<script src="js/jquery-1.12.2.min.js"></script>
+	<script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
 	<script src="js/jquery-ui-1.11.4.custom.min.js"></script>
 <script language="javascript" src="js/locate.js" charset="utf-8"></script>
+<script language="javascript" src="js/mr.js" charset="utf-8"></script>
 <script language="javascript" src="js/getboard.js" charset="utf-8"></script>
-<script language="javascript" src="js/main.js" charset="utf-8"></script>
+<script src="js/checkers.js" charset="utf-8"></script>
+
 <?php
 if(isset($_GET["s"]))  {
-   echo '<script> var temp=MRD("'.$_GET["s"].'"); var title="";';
+   echo '<script> var temp=MRD("'.$_GET["s"].'", true); var title="";';
    echo 'var Notation = JSON.parse(temp);</script>'; 
       if(isset($_GET["b"])) {
 	     echo '<script> var temp2=MRD("' .$_GET["b"]. '");';
@@ -45,14 +46,15 @@ if(isset($_GET["s"]))  {
 ?>	
 </head>
 
-<body class="email">
-<div id="content-email">
+<body>
+<div id="content-email" style="margin-top: 40px;">
 	<div id ="sent-position"></div>
 	<div id="curr-version"></div>
-	
 </div>
 
-<script>displaySendPosition(chS, lang, sellColor);</script>
+<script>
+	displayPosition();
+</script>
 </body>
 </html>
 
