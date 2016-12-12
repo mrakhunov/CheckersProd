@@ -16,7 +16,7 @@ var parentTableId = null;
 var menuChecker = {
 	name:null,
 	parentcolor: 'transparent', 
-	selectedcolor: 'rgba(232, 194, 240, 0.43)',
+	selectedcolor: 'rgba(223, 160, 236, 0.431373)',
 	busy: false,
 	owner: null,
 	body: null,
@@ -50,7 +50,7 @@ $( document ).ready(function() {
 	Board.isShowSettings = StoredPosition.Board.isShowSettings;
 	Board.currentCellSize = StoredPosition.Board.currentCellSize;
 	Board.lang = StoredPosition.Board.lang; 
-	Locate.land = Board.lang;
+	Locate.lang = Board.lang;
 	Board.version();  // Write cooperate
 	
 	addBoard('content');

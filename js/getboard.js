@@ -354,7 +354,7 @@ var buildURL =  function (openNewWindow) {
 			}
 	  }		
 	}
-    url = "http://checkershome.com/pos.php?s=" + MRE(url + "]");
+    url = window.location.href + "pos.php?s=" + MRE(url + "]");
 	
      
 	 var rowIndx = Math.ceil(Math.random()*10);
@@ -371,6 +371,7 @@ var buildURL =  function (openNewWindow) {
 	} else {
 		$('#pos-url').attr('href', url);
 		$('#pos-url').text(Locate.current.modalWindowLink);
+		$('#copyText').text(url);
 	}
 }	
 
