@@ -118,7 +118,10 @@ $( document ).ready(function() {
 	
 	$('#type').change(function(event) {
 		
-		if(Board.isChess) { $($('.nt-checkbox')[1]).trigger('click'); }
+		if(Board.isChess) { 
+			$($('.nt-checkbox')[1]).trigger('click'); 
+			Board.isChessBefore = true;
+		}
 		if(Board.isNotationShown) { $($('.nt-checkbox')[0]).trigger('click'); }
 			    
 		if($("#type :selected").val() === 'i') {
@@ -146,9 +149,13 @@ $( document ).ready(function() {
 				$('#color').trigger('change');
 		}
 
-        menuChecker.originalState();		
+		menuChecker.originalState();		
 		startPosition();
 		setBoardSize(Board.currentCellSize, 'tbl1', Board.colorName);
+		if ($("#type :selected").val() === '8' && Board.isChessBefore) {
+			$($('.nt-checkbox')[1]).prop('checked', true);
+			Board.isChess = true;
+		}
 		StoredPosition.buildNotation () //store position to local storage 
     });
 	
@@ -222,6 +229,7 @@ $( document ).ready(function() {
 		   showNotation($this.is(':checked')); 
 		} else {
 			Board.isChess = $this.is(':checked');
+			Board.isChessBefore = Board.isChess;
 			var notationCheckBox = $(".nt-checkbox")[0];
 			if(Board.isChess) {
 				if(Board.emptyboard) {showNotation($(notationCheckBox).is(':checked'));}

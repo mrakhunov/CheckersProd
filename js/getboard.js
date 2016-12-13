@@ -15,8 +15,9 @@
 	colorName: null,
 	isNotationShown: false,
 	isChess: true,
+	isChessBefore: true,
 	isShowSettings: true,
-	version: function() { $('#curr-version').html("&copy2014 Mikhail Rakhunov. Checkers Home(1.2.16)"); },
+	version: function() { $('#curr-version').html("&copy2014 Mikhail Rakhunov. Checkers Home(1.2.17)"); },
 	cellbackground:  {
 		cellblue:['#7DBDE7', 'rgba(125, 189, 231, 0)', 'rgb(35, 137, 231)'], /* black cell, white cell, and board border*/
 	    cellbrown:['#A45200', '#FBD584', '#990000'],
@@ -192,7 +193,8 @@ var addBoard2 = function(elId) {
 	Board2.buildCellsize    = Board.buildCellsize;
 	Board2.currentCellSize = Board.currentCellSize,
 	Board2.isNotationShown =  Board.isNotationShown;
-	Board2.isChess = Board2.isChess;
+	Board2.isChess = Board.isChess;
+	Board2.isChessBefore = Board.isChessBefore;
 		
 	$($div).attr('id', Board2.parenttId).attr('align', 'center');
 	$($div).addClass('boardholder');
