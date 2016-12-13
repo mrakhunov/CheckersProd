@@ -30,7 +30,8 @@ $(function() {
 		oneRow: oneRow,
 		notation: notationObj,
 		colorName: colorName,
-		italian: italian
+		italian: italian,
+		isVersionShown: true
 	};
 
 	$("#sent-position").showPosition(properties); 
