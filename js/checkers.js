@@ -50,9 +50,10 @@ $.fn.showPosition = function(arguments) {
 		isChess: arguments.isChess || true,
 		currentCellSize: arguments.cellSize || 24,
 		notation: arguments.notation,
+		notes: arguments.notes || null,
 		currentColor: (arguments.colorName === undefined || arguments.colorName === null)? 'brown' :  arguments.colorName,
 		colors:  boardColors,
-		isVersionShown: arguments.isVersionShown || true,
+		isVersionShown: arguments.isVersionShown || false,
 		version: "&copy2016 Mikhail Rakhunov. Checkers Engine(1.0.1)" 
 	};
 	

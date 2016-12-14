@@ -54,8 +54,10 @@ var StoredPosition = {
 	
 	getBoard: function() {
 		var boardObject = {};
-		if(localStorage["board"]) {
-			boardObject = JSON.parse(localStorage["board"]);
+		if(typeof localStorage !=="undefined") {
+			if(localStorage["board"] !== null && localStorage["board"] !== undefined) {
+				boardObject = JSON.parse(localStorage["board"]);
+			}	
 		}	
 		this.setBoard(boardObject);
 	},
@@ -64,14 +66,18 @@ var StoredPosition = {
 		for (var i = 0; i < 4; i++) {
 			this.checkerTypes[i][1] = notationArray[i];
 		}
-		localStorage.setItem("position", JSON.stringify(this.checkerTypes));
+		if(typeof localStorage !=="undefined") {
+			localStorage.setItem("position", JSON.stringify(this.checkerTypes));
+		}	
 	},
 	
 	showPosition: function() {
 	    this.getBoard();
 		//buildBoard();
 		
-	    if(!localStorage.position) { return false; }
+	    if(typeof localStorage ==="undefined" || !localStorage.position) { 
+			return false; 
+		}
 		
 		var notation = JSON.parse(localStorage["position"]);
 		var isCheckers = false;

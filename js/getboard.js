@@ -2,6 +2,7 @@
 //or http://dean.edwards.name/packer/
  
  var textToClipboardHolder = null;
+ var baseURL = window.location.origin === "file://" ? "http://checkershome.com/devHTML/" : window.location.href;
  var Board = {
     id: null,
 	oneRow: 8,
@@ -222,7 +223,7 @@ var sendTo = function () {
 		width: 'auto', resizable: false,
 		position: { my: "left center", at: "left center", of: $('#content') },
 	   buttons: [ 
-			{id: "copybtn", text: Locate.current.copyToClipboard, click: function() {textToClipboardHolder.copyToClipboard('#copyText'); } },
+			{id: "copybtn", text: Locate.current.copyToClipboard, click: function() {textToClipboardHolder.copyToClipboard('#copyText', '#copybtn'); } },
 			{ style: "height: 24px;", text: Locate.current.modalWindowButtons[0], click: function() { $( this ).dialog( "close" ); } } 	
 		], 
 		close: function (event, ui) {
@@ -277,8 +278,10 @@ var sendTo = function () {
 	setBoardSize(Board.currentCellSize, 'tbl2', Board.colorName);
 	$('#dialog-note').append( '<p><a id="pos-url" target="_blank"></a></p>');		
 
-buildURL(false);
-
+	buildURL(false);
+	// frize dialog width and height;
+	$('.ui-dialog').css("width", $('.ui-dialog').css("width"));
+	$('.ui-dialog').css("height", $('.ui-dialog').css("height"));
 }
 
 var writePosition = function () {
@@ -356,7 +359,7 @@ var buildURL =  function (openNewWindow) {
 			}
 	  }		
 	}
-    url = window.location.href + "pos.php?s=" + MRE(url + "]");
+    url = baseURL + "pos.php?s=" + MRE(url + "]");
 	
      
 	 var rowIndx = Math.ceil(Math.random()*10);
