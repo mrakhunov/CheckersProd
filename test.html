@@ -1,0 +1,51 @@
+ <!DOCTYPE>
+<html>
+<head>
+	<meta name="http-equiv" content="Content-type: text/html; charset=utf-8"/>
+	<title>ENcription Test</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="http://checkershome.com/images/favicon-logo2.png">
+	<meta name="author" content="Mikhail Rakhunov">
+	<meta name="description" content="Mikhail Rakhunov, checkers, checkers for all devices, шашки, шашки для всех устройств, Михаил Рахунов">
+	
+	 <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
+	 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+	<script language="javascript" src="js/mr-test.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div id="page-container" class="container">
+		<div id="page-header" class="page-header" style="height: 65px;     background-color: antiquewhite;">
+			<div class="col-xs-9 col-md-10">
+			  <h1>Encription Test</h1>
+			</div>
+		</div>
+		<p>
+			<textarea id="text" rows="10" cols="100"></textarea>
+			<textarea id="res" rows="10" cols="100"></textarea>
+			<div class="btn-group" role="group" aria-label="...">
+			  <button id="encr" type="button" class="btn btn-default">Encript</button>
+			  <button id="decr" type="button" class="btn btn-default">Decript</button>
+			  <button id="clear" type="button" class="btn btn-default">Clear</button>
+			</div>
+		</p>	
+	</div>
+	<script>
+	$( document ).ready(function() {
+		$('#encr').click(function() {
+			var result = MRE($('#text').val());
+			$('#res').val(result);
+		});
+		
+		$('#decr').click(function() {
+			var result = MRD($('#text').val());
+			$('#res').val(result);
+		});
+	});
+	</script>
+</body>
+</html>

@@ -26,6 +26,7 @@ var MRE = function (txt) {
 				tmp = my62.charAt(cent) + my62.charAt(dec) + my62.charAt(num % cdLen);
 		   }	
 	   }
+	  // tmp=String(num + k);
 	   if(tmp.length < 2) tmp = "A"+tmp;
 	   out +=tmp;
 	   if (k == cd3[0]) k = cd3[1];
