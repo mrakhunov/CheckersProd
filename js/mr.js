@@ -1,40 +1,60 @@
+var my62 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+var cdLen = my62.length;
+var cd3 = [7, 19, 23];
+
 var MRE = function (txt) {
-	var k = 3;
+	var k = cd3[0];
 	var r = Math.random()*3;
-	if (r < 1) k = 3;
-	else if (r > 2) k = 7;
-	else k = 5;
+	if (r < 1) k = cd3[0];
+	else if (r > 2) k = cd3[2];
+	else k = cd3[1];
 	r = k;
 	var out = ""; 
 	for (i=0; i<txt.length; i++){
 	   num = txt.charCodeAt(i);
-	   tmp=String(num *k);
-	   if(tmp.length < 2) out = "000"+tmp;
-	   else if (tmp.length < 3) tmp = "00"+tmp;
-	   else if (tmp.length < 4) tmp = "0"+tmp;
+	   num = num + k;
+	   var tmp;
+	   if(num < cdLen) {
+		   tmp = my62.charAt(num);
+	   } else {
+		   var dec = Math.floor(num / cdLen);
+		   if(dec < cdLen) {
+				tmp = my62.charAt(dec) + my62.charAt(num % cdLen);
+		   } else {
+				var cent =  Math.floor(dec / cdLen);
+				dec = my62.charAt(dec % cdLen);
+				tmp = my62.charAt(cent) + my62.charAt(dec) + my62.charAt(num % cdLen);
+		   }	
+	   }
+	   if(tmp.length < 2) tmp = "A"+tmp;
 	   out +=tmp;
-	   if (k == 3) k = 5;
-	   else if (k == 5) k = 7; 
-	   else k = 3; 
+	   if (k == cd3[0]) k = cd3[1];
+	   else if (k ==cd3[1]) k = cd3[2]; 
+	   else k = cd3[0]; 
 	}
-	return String(r) + out;
+	return my62.charAt(r) + out;
 };
 
 var MRD = function (inTxt) {
 	var left = inTxt.substr(1);
-	var r = inTxt.substr(0,1);
-	var pos = 4;
+	var r = my62.indexOf(inTxt.substr(0,1));
+	var pos = 2;
 	var txt = "";
 	var num = 0; 
-	k = Number(r);
-
+	var i;
+	for(i = 0; i < cd3.length; i++) {
+		if( r === cd3[i]) {
+			break;
+		}
+	}
+	
 	while (left.length >=pos){
-	 num =  Number(left.slice(0, pos))/k;
-	 txt += String.fromCharCode(num);
-	 
-	 left = left.slice(pos);
-	 k += 2;
-	 if (k > 7) k = 3; 
+		 var num62 = left.slice(0, pos);
+		 num = my62.indexOf(num62.substr(0,1)) * 62 + my62.indexOf(num62.substr(1,1)) - cd3[i];
+		 txt += String.fromCharCode(num);
+		 left = left.slice(pos);
+		 i++;
+		 if (i === 3 ) i = 0;
 	}
 	return txt; 
 };
