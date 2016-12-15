@@ -1,14 +1,18 @@
 var my62 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+var zero = ["A", "!", "%"];
 var cdLen = my62.length;
 var cd3 = [7, 19, 23];
 
+var getIndex = function () {
+	var x = Math.random()*3;
+	if (x < 1) return 0;
+	else if (x > 2) return 2;
+	else return 1;
+}
+
 var MRE = function (txt) {
-	var k = cd3[0];
-	var r = Math.random()*3;
-	if (r < 1) k = cd3[0];
-	else if (r > 2) k = cd3[2];
-	else k = cd3[1];
-	r = k;
+	var k = cd3[getIndex()];
+	var r = k;
 	var out = ""; 
 	for (i=0; i<txt.length; i++){
 	   num = txt.charCodeAt(i);
@@ -26,7 +30,8 @@ var MRE = function (txt) {
 				tmp = my62.charAt(cent) + my62.charAt(dec) + my62.charAt(num % cdLen);
 		   }	
 	   }
-	   if(tmp.length < 2) tmp = "A"+tmp;
+	   if(tmp.length < 2) tmp = zero[getIndex()]+tmp;
+	   else if(tmp.length > 2) tmp = "!!";
 	   out +=tmp;
 	   if (k == cd3[0]) k = cd3[1];
 	   else if (k ==cd3[1]) k = cd3[2]; 
@@ -50,8 +55,14 @@ var MRD = function (inTxt) {
 	
 	while (left.length >=pos){
 		 var num62 = left.slice(0, pos);
-		 num = my62.indexOf(num62.substr(0,1)) * 62 + my62.indexOf(num62.substr(1,1)) - cd3[i];
-		 txt += String.fromCharCode(num);
+		 if (num62 === "!!") {
+			txt += "?"; 
+		 } else {
+			 var dec = (num62.substr(0,1) === "!" ||  num62.substr(0,1) === "%") ? 0 : my62.indexOf(num62.substr(0,1));
+			 num = dec * 62 + my62.indexOf(num62.substr(1,1)) - cd3[i];
+			 txt += String.fromCharCode(num);
+		 }	 
+		 
 		 left = left.slice(pos);
 		 i++;
 		 if (i === 3 ) i = 0;
