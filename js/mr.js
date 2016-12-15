@@ -11,7 +11,7 @@ var MRE = function (txt) {
 	r = k;
 	var out = ""; 
 	for (i=0; i<txt.length; i++){
-	   num = txt.charCodeAt(i);
+	   var num = txt.charCodeAt(i);
 	   num = num + k;
 	   var tmp;
 	   if(num < cdLen) {
