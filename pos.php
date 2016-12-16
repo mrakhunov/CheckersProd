@@ -3,7 +3,9 @@
 <head>
 	<meta name="http-equiv" content="Content-type: text/html; charset=utf-8"/>
 	<title>Mikhail Rakhunov's Checkers</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="http://checkershome.com/images/favicon-logo2.png">
 	<meta name="author" content="Mikhail Rakhunov">
 	<meta name="description" content="шашки, стоклеточные шашки, международные шашки, Mikhail Rakhunov, shashki, draughts,russian checkers, italian checkers, english checkers, international checkers, polish checkers, spanish checkers, poolcheckers, american checkers,  checkers, checkers for all devices, шашки, шашки для всех устройств, Михаил Рахунов">
 	<link href="css/checkers.css" rel="stylesheet" type="text/css" media="screen">
