@@ -1,5 +1,5 @@
 var my62 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
-var zero = ["A", "!", "%"];
+var zero = ["A", "!", "$"];
 var cdLen = my62.length;
 var cd3 = [7, 19, 23];
 
@@ -15,7 +15,7 @@ var MRE = function (txt) {
 	var r = k;
 	var out = ""; 
 	for (i=0; i<txt.length; i++){
-	   num = txt.charCodeAt(i);
+	   var num = txt.charCodeAt(i);
 	   num = num + k;
 	   var tmp;
 	   if(num < cdLen) {
@@ -58,7 +58,7 @@ var MRD = function (inTxt) {
 		 if (num62 === "!!") {
 			txt += "?"; 
 		 } else {
-			 var dec = (num62.substr(0,1) === "!" ||  num62.substr(0,1) === "%") ? 0 : my62.indexOf(num62.substr(0,1));
+			 var dec = (num62.substr(0,1) === "!" ||  num62.substr(0,1) === "$") ? 0 : my62.indexOf(num62.substr(0,1));
 			 num = dec * 62 + my62.indexOf(num62.substr(1,1)) - cd3[i];
 			 txt += String.fromCharCode(num);
 		 }	 
