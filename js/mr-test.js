@@ -1,5 +1,5 @@
 var my62 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
-var zero = ["A", "!", "$"];
+var border = "$";
 var cdLen = my62.length;
 var cd3 = [7, 19, 23];
 
@@ -20,19 +20,18 @@ var MRE = function (txt) {
 	   var tmp;
 	   if(num < cdLen) {
 		   tmp = my62.charAt(num);
-	   } else {
+	   } else if (num < (cdLen * cdLen)) {
 		   var dec = Math.floor(num / cdLen);
-		   if(dec < cdLen) {
-				tmp = my62.charAt(dec) + my62.charAt(num % cdLen);
-		   } else {
-				var cent =  Math.floor(dec / cdLen);
-				dec = my62.charAt(dec % cdLen);
-				tmp = my62.charAt(cent) + my62.charAt(dec) + my62.charAt(num % cdLen);
-		   }	
-	   }
-	   if(tmp.length < 2) tmp = zero[getIndex()]+tmp;
-	   else if(tmp.length > 2) tmp = "!!";
-	   out +=tmp;
+		   tmp = my62.charAt(dec) + my62.charAt(num % cdLen);
+		} else {
+			var x = cdLen * cdLen;
+			var cent =  Math.floor(num / x);
+			var dec = Math.floor(num % x);
+			var didg = Math.floor(dec % cdLen);
+			dec = Math.floor(dec / cdLen);
+			tmp = my62.charAt(cent) + my62.charAt(dec) + my62.charAt(didg);
+	    }
+	   out += (i === 0? "" : border) + tmp;
 	   if (k == cd3[0]) k = cd3[1];
 	   else if (k ==cd3[1]) k = cd3[2]; 
 	   else k = cd3[0]; 
@@ -43,7 +42,6 @@ var MRE = function (txt) {
 var MRD = function (inTxt) {
 	var left = inTxt.substr(1);
 	var r = my62.indexOf(inTxt.substr(0,1));
-	var pos = 2;
 	var txt = "";
 	var num = 0; 
 	var i;
@@ -52,21 +50,26 @@ var MRD = function (inTxt) {
 			break;
 		}
 	}
-	
-	while (left.length >=pos){
-		 var num62 = left.slice(0, pos);
-		 if (num62 === "!!") {
-			txt += "?"; 
-		 } else {
-			 var dec = (num62.substr(0,1) === "!" ||  num62.substr(0,1) === "$") ? 0 : my62.indexOf(num62.substr(0,1));
-			 num = dec * 62 + my62.indexOf(num62.substr(1,1)) - cd3[i];
-			 txt += String.fromCharCode(num);
-		 }	 
-		 
-		 left = left.slice(pos);
-		 i++;
-		 if (i === 3 ) i = 0;
-	}
+	 var txtArray = left.split("$");
+	txtArray.forEach(function(num62, index){
+		var cen = "";
+		var dec = "";
+		var didg = "";
+		if(num62.length === 3) {
+			cen = my62.indexOf(num62.substr(0,1));
+			dec = my62.indexOf(num62.substr(1,1));
+			didg = my62.indexOf(num62.substr(2,1));
+			num = ((cen * 62 * 62) + (dec * 62) + didg) - cd3[i];
+		} else if(num62.length === 2) {
+			dec = my62.indexOf(num62.substr(0,1));
+			num = (dec * 62 + my62.indexOf(num62.substr(1,1))) - cd3[i];
+		} else if(num62.length === 1) {
+			num = my62.indexOf(num62) - cd3[i];
+		}
+		txt += String.fromCharCode(num);
+		i++;
+		if (i === 3 ) i = 0;
+	});
 	return txt; 
 };
 
