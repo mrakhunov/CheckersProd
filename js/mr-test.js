@@ -1,9 +1,41 @@
-var my65 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789$#!";
+var default65 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789$#!";
+var my65 = "QfmrOpHEeI1bivRoJ87SdUV2wgBhP549Gt0$DYukNMx3s!FZLlCXzcnWa#A6yqTjK"; //default65;
 var my62 = my65.substr(0,62);
 var border = [my65.substr(62, 1), my65.substr(63, 1), my65.substr(64, 1)];
 var borderStr = border.toString();
 var cdLen = my62.length;
 var cd3 = [7, 19, 23];
+
+var generateKey = function() {
+	var isSmallEnough = function(value) {
+		return value <=65;
+	};
+	var indx = 0;
+	var key = "";
+	var array = new Uint8Array(1000);
+	while (key.length < 65){
+		indx++
+		if(indx === 5) {
+			break;
+		}
+		window.crypto.getRandomValues(array);
+		array = array.filter(isSmallEnough);
+		var len = array.length;
+		for(var i = 0; i < len; i++) {
+			var ch = default65.charAt(array[i]);
+			if(key.includes(ch)) {
+				continue;
+			} else {
+				key += ch;
+				if(key.length === 65) {
+					my65 = key;
+					return key;
+				}
+			}
+		}
+	}	
+	return default65;
+}
 
 var getIndex = function () {
 	var x = Math.random()*3;
