@@ -16,7 +16,7 @@ var parentTableId = null;
 var menuChecker = {
 	name:null,
 	parentcolor: 'transparent', 
-	selectedcolor: 'rgba(223, 160, 236, 0.431373)',
+	selectedcolor: 'rgba(223, 160, 236, 0.431373)',//'rgba(232, 194, 240, 0.43)',
 	busy: false,
 	owner: null,
 	body: null,
@@ -47,7 +47,7 @@ $( document ).ready(function() {
 	Board.italian = StoredPosition.Board.italian;
 	Board.cellbackgroundcurrent = StoredPosition.Board.cellbackgroundcurrent;
 	Board.colorName = StoredPosition.Board.colorName;
-	Board.isShowSettings = StoredPosition.Board.isShowSettings;
+	Board.isShowSettings = StoredPosition.Board.isShowSettings || true;
 	Board.currentCellSize = StoredPosition.Board.currentCellSize;
 	Board.lang = StoredPosition.Board.lang; 
 	Locate.lang = Board.lang;
@@ -96,9 +96,13 @@ $( document ).ready(function() {
 			$('#settingbtn').text(Locate.current.linkHideSettings);
 			Board.isShowSettings = true;
 		}
+		/* StoredPosition.setBoard(Board);
+		localStorage.setItem("board", JSON.stringify(StoredPosition.Board));  */
 		$('#settings').slideToggle("slow");	
 		
     });
+	
+	
 	
 	
 	$('#clearpage').click(function(event) {
@@ -118,10 +122,7 @@ $( document ).ready(function() {
 	
 	$('#type').change(function(event) {
 		
-		if(Board.isChess) { 
-			$($('.nt-checkbox')[1]).trigger('click'); 
-			Board.isChessBefore = true;
-		}
+		if(Board.isChess) { $($('.nt-checkbox')[1]).trigger('click'); }
 		if(Board.isNotationShown) { $($('.nt-checkbox')[0]).trigger('click'); }
 			    
 		if($("#type :selected").val() === 'i') {
@@ -149,13 +150,9 @@ $( document ).ready(function() {
 				$('#color').trigger('change');
 		}
 
-		menuChecker.originalState();		
+        menuChecker.originalState();		
 		startPosition();
 		setBoardSize(Board.currentCellSize, 'tbl1', Board.colorName);
-		if ($("#type :selected").val() === '8' && Board.isChessBefore) {
-			$($('.nt-checkbox')[1]).prop('checked', true);
-			Board.isChess = true;
-		}
 		StoredPosition.buildNotation () //store position to local storage 
     });
 	
@@ -229,7 +226,6 @@ $( document ).ready(function() {
 		   showNotation($this.is(':checked')); 
 		} else {
 			Board.isChess = $this.is(':checked');
-			Board.isChessBefore = Board.isChess;
 			var notationCheckBox = $(".nt-checkbox")[0];
 			if(Board.isChess) {
 				if(Board.emptyboard) {showNotation($(notationCheckBox).is(':checked'));}
